@@ -41,7 +41,7 @@ class YNABApi:
             for tr in revolut_transactions
         ]
 
-        logging.info(json.dumps(ynab_transactions))
+        logging.info(json.dumps({"message": "Sending transactions to YNAB", "ynab_transactions": ynab_transactions}))
 
         response = HTTPRequest.post(
             host=self.host,

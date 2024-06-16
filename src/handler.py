@@ -69,8 +69,8 @@ def handler(event: dict, context: object) -> dict:
             try:
                 csv_reader = csv.DictReader(StringIO(attachment))
                 json_data = list(csv_reader)
+                logging.debug(json.dumps({"message": "Parsed Revolut transactions", "revolut_transactions": json_data}))
 
-                logging.info(json.dumps({"message": "Sending transactions to YNAB", "transactions": json_data}))
                 summary = YNAB_API.send_transactions(json_data)
                 logging.info(json.dumps({"message": "Transactions imported by YNAB", "summary": summary.to_dict()}))
 

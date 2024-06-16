@@ -48,11 +48,14 @@ class YNABApi:
             endpoint=f"/v1/budgets/{self.budget_id}/transactions",
             payload={"transactions": ynab_transactions},
             headers=self.headers,
-        ).json()
+        )
+
+        response.raise_for_status()
+        data = response.json()
 
         return TransactionImportSummary(
-            transactions_imported=len(response["data"]["transaction_ids"]),
-            duplicates_skipped=len(response["data"]["duplicate_import_ids"]),
+            transactions_imported=len(data["data"]["transaction_ids"]),
+            duplicates_skipped=len(data["data"]["duplicate_import_ids"]),
         )
 
     @staticmethod

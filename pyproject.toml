@@ -1,0 +1,29 @@
+[tool.ruff]
+line-length = 120
+include = ["src/*.py", "tests/*.py"]
+
+[tool.ruff.lint]
+ignore = ["ANN101", "ANN102", "PT019", "N815", "A003"]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "N",
+    "UP",
+    "ANN",
+    "B",
+    "A",
+    "C4",
+    "DTZ",
+    "PIE",
+    "T20",
+    "PT",
+    "SIM",
+    "PTH",
+    "PL"
+]
+
+[tool.mypy]
+python_version = 3.12
+ignore_missing_imports = true

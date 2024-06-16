@@ -4,6 +4,10 @@ Send Revolut CSV statements to an email address, to automatically import transac
 Duplicate transactions will be ignored. Uses serverless architecture with AWS Lambda, Simple Email Service (SES) and
 Simple Storage Service (S3), all virtually for free.
 
+It helps to have some experience with AWS, Terraform, and Python to deploy this project. This project works well for me
+so I decided to share it with the world in case it helps someone else too, be it with their journey with Revolut, YNAB,
+or AWS.
+
 ## How to Use
 
 1. Download a statement from Revolut in Excel format
@@ -55,6 +59,10 @@ The project only uses the Python standard library. External libraries, like `req
 packaging the (arm64) lambda and of keeping the libraries up to date (forever).
 
 ## Improvement ideas / considerations
+
+This project solves my own problem. I'm only interested in importing transactions from one specific Revolut account
+into one specific YNAB account. If you're interested in importing transactions from multiple accounts, you should
+generalize my solution.
 
 One quality of life improvement could be to immediately accept Excel files by email. This requires however a more
 complex setup for installing and zipping extra Python libraries. The current setup doesn't require any extra libraries
